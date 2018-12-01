@@ -11,11 +11,10 @@ export class AppComponent {
   
   constructor(private http: HttpClient) {}
   
-  var urlModel = "https://automl.googleapis.com/v1beta1/projects/endless-upgrade-223916/locations/us-central1/models/ICN5541762132522833103";
-  
   onFileChanged(event) {
+    var urlModel = "https://automl.googleapis.com/v1beta1/projects/endless-upgrade-223916/locations/us-central1/models/ICN5541762132522833103";
     this.http.post(
-      this.urlModel, 
+      urlModel, 
       {
         payload: {
          image: {
