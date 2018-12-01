@@ -12,7 +12,8 @@ export class AppComponent {
   constructor(private http: HttpClient) {}
   
   onFileChanged(event) {
-    var urlModel = "https://automl.googleapis.com/v1beta1/projects/endless-upgrade-223916/locations/us-central1/models/ICN5541762132522833103";
+    var urlModel = "https://automl.googleapis.com/v1beta1/ICN5541762132522833103:predict";
+        //"https://automl.googleapis.com/v1beta1/projects/endless-upgrade-223916/locations/us-central1/models/ICN5541762132522833103";
     this.http.post(
       urlModel, 
       {
