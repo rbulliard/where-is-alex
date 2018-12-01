@@ -1,0 +1,39 @@
+{
+  "name": "where-is-alex",
+  "description": "Where's Alex",
+  "version": "1.0.0",
+  "license": "None",
+  "author": "rbulliard",
+  "engines": {
+    "node": ">=8"
+  },
+  "repository": "https://github.com/rbulliard/where-is-alex",
+  "main": "app.js",
+  "private": true,
+  "cloud-repo-tools": {
+    "requiresKeyFile": true,
+    "requiresProjectId": true,
+    "test": {
+      "app": {
+        "args": [
+          "app.js"
+        ],
+        "msg": "Where's Alex"
+      }
+    }
+  },
+  "scripts": {
+    "start": "node app.js",
+    "e2e": "repo-tools test deploy",
+    "test": "repo-tools test app",
+    "cover": "nyc --cache npm test; nyc report --reporter=html"
+  },
+  "dependencies": {
+    "express": "4.16.4"
+  },
+  "devDependencies": {
+    "@google-cloud/nodejs-repo-tools": "^3.0.0",
+    "ava": "0.25.0",
+    "supertest": "^3.3.0"
+  }
+}
