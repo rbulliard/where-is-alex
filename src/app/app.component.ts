@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,15 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'where-is-alex';
+  
+  constructor(private http: HttpClient) {}
+  
+  const urlModel = "https://automl.googleapis.com/v1beta1/projects/endless-upgrade-223916/locations/us-central1/models/ICN5541762132522833103";
   
   onFileChanged(event) {
-    const file = event.target.files[0];
-    this.http.post('my-backend.com/file-upload', this.selectedFile).subscribe(event => {
+    var postObject = new Object();
+    postObject.payload.image.imageBytes = event.target.files[0];
+    this.http.post(urlModel, postObject).subscribe(event => {
       console.log(event); // handle event here
     });
   }
