@@ -15,11 +15,11 @@ export class AppComponent {
   
   onFileChanged(event) {
     this.http.post(
-      urlModel, 
+      this.urlModel, 
       {
-        payload : {
-         image : {
-           imageBytes : event.target.files[0]
+        payload: {
+         image: {
+           imageBytes: event.target.files[0]
           }
         }
       }, 
