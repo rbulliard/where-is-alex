@@ -9,14 +9,16 @@ import { HttpClient } from '@angular/common/http';
 
 export class AppComponent {
   
+  selectedFile: File = null;
+  
   constructor(private http: HttpClient) {}
   
   onFileChanged(event) {
     console.log(event.target.files[0]);
     
-    selectedFile: File = <File>event.target.files[0];
+    this.selectedFile = <File>event.target.files[0];
     const fd = new FormData();
-    fd.append('image', selectedFile, selectedFile.name);
+    fd.append('image', this.selectedFile, this.selectedFile.name);
     var config = {
         headers: {'Content-Type': "image/jpeg"},
         transformRequest: []
