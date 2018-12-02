@@ -13,13 +13,17 @@ export class AppComponent {
   
   onFileChanged(event) {
     console.log(event.target.files[0]);
+    
+    selectedFile: File = <File>event.target.files[0];
+    const fd = new FormData();
+    fd.append('image', selectedFile, selectedFile.name);
     var config = {
         headers: {'Content-Type': "image/jpeg"},
         transformRequest: []
     };
     //var urlModel = "https://automl.googleapis.com/v1beta1/projects/endless-upgrade-223916/locations/us-central1/models/ICN5541762132522833103:predict";
     var url = "https://us-central1-endless-upgrade-223916.cloudfunctions.net/where-is-alex";
-    this.http.post(url, event.target.files[0], config).subscribe(event => {
+    this.http.post(url, fd).subscribe(event => {
         console.log(event); // handle event here
       });
   }
