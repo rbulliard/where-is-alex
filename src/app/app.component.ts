@@ -14,7 +14,7 @@ export class AppComponent {
   onFileChanged(event) {
     console.log(event.target.files[0]);
     var config = {
-        headers: {'Content-Type': undefined},
+        headers: {'Content-Type': "image/jpeg"},
         transformRequest: []
     };
     //var urlModel = "https://automl.googleapis.com/v1beta1/projects/endless-upgrade-223916/locations/us-central1/models/ICN5541762132522833103:predict";
