@@ -1,6 +1,6 @@
-<img style="display:block; margin:auto;max-height:150px;" src="assets/title.jpeg"/>
+<img class="img-preview" src="assets/title.jpeg"/>
 <input type="file" accept="image/*" id="file-input" (change)="onFileChanged($event)"/>
 <div ng-show="showLoader" class="lds-facebook"><div></div><div></div><div></div></div>
-<div style="text-align:center;" id="result"></div>
+<div ng-hide="showLoader" class="result"></div>
 
 <router-outlet></router-outlet>
