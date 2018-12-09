@@ -35,16 +35,18 @@ export class AppComponent {
     var httpClient = this.http;
     var r = new FileReader();
     var img;
+    var modelResult;
     r.onload = function(){ 
       console.log(r.result);
       img = r.result;
       httpClient.post(url, r.result).subscribe(event => {
         console.log(event); // handle event here
-        this.result = event[0].payload[0].displayName;
+        modelResult = event[0].payload[0].displayName;
       });
     };
     r.readAsDataURL(this.selectedFile);
     this.imgAlex = img;
+    this.result = modelResult;
   }
   
 }
