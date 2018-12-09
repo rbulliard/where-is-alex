@@ -9,9 +9,9 @@ import { HttpClient } from '@angular/common/http';
 
 export class AppComponent {
   
-  public imgAlex = "";
+  public imgAlex;
   
-  public result = "Is it Alex ?";
+  public result;
   
   selectedFile: File = null;
   
@@ -34,7 +34,7 @@ export class AppComponent {
     //  });
     var httpClient = this.http;
     var r = new FileReader();
-    var img = this.imgAlex;
+    var img;
     r.onload = function(){ 
       console.log(r.result);
       img = r.result;
@@ -44,6 +44,7 @@ export class AppComponent {
       });
     };
     r.readAsDataURL(this.selectedFile);
+    this.imgAlex = img;
   }
   
 }
