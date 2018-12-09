@@ -23,7 +23,7 @@ export class AppComponent {
     var loader = document.querySelector(".lds-facebook");
     result.remove();
     this.showLoader = true;
-    var showL = this.showLoader;
+    var app = this;
     
     
     var httpClient = this.http;
@@ -38,7 +38,7 @@ export class AppComponent {
         var response = document.createElement("div");
         response.id = "result";
         response.innerText = event[0].payload[0].displayName;
-        showL = false;
+        app.showLoader = false;
         loader.append(response);
       });
     }, false);
