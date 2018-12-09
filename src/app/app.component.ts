@@ -9,6 +9,8 @@ import { HttpClient } from '@angular/common/http';
 
 export class AppComponent {
   
+  public showLoader = false;
+  
   selectedFile: File = null;
   
   constructor(private http: HttpClient) {}
@@ -18,9 +20,9 @@ export class AppComponent {
     
     var preview = document.querySelector("img");
     var result = document.querySelector("#result");//document.getElementById('result');
-    loader: HTMLElement = document.querySelector(".lds-facebook");
+    var loader = document.querySelector(".lds-facebook");
     result.remove();
-    loader.hidden = false;
+    showLoader = true;
     
     var httpClient = this.http;
 
@@ -34,7 +36,7 @@ export class AppComponent {
         var response = document.createElement("div");
         response.id = "result";
         response.innerText = event[0].payload[0].displayName;
-        loader.hidden = true;
+        showLoader = false;
         loader.append(response);
       });
     }, false);
