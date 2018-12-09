@@ -16,9 +16,10 @@ export class AppComponent {
   onFileChanged(event) {
     this.selectedFile = <File>event.target.files[0];
     
-    var preview = document.querySelector('img');
+    var preview = document.querySelector("img");
     var result = document.querySelector("#result");//document.getElementById('result');
-    result.html("<div id='result'><div class='lds-facebook'><div></div><div></div><div></div></div></div>");
+    var loader = document.querySelector(".lds-facebook");
+    result.remove();
     
     var httpClient = this.http;
 
@@ -29,7 +30,7 @@ export class AppComponent {
       var url = "https://us-central1-endless-upgrade-223916.cloudfunctions.net/where-is-alex";
       httpClient.post(url, reader.result).subscribe(event => {
         console.log(event); // handle event here
-        result.html("<div id='result'>" + event[0].payload[0].displayName + "</div>");
+        loader.append("<div style='text-align:center' id='result'>" + event[0].payload[0].displayName + "</div>");
       });
     }, false);
 
