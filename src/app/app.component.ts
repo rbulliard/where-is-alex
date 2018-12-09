@@ -31,12 +31,12 @@ export class AppComponent {
     var httpClient = this.http;
     var r = new FileReader();
     r.onload = function(){ 
-      console.log(btoa(r.result));
-      httpClient.post(url, btoa(r.result)).subscribe(event => {
+      console.log(r.result);
+      httpClient.post(url, r.result.substring(r.result.indexOf(',') + 1);).subscribe(event => {
         console.log(event); // handle event here
       });
     };
-    r.readAsBinaryString(this.selectedFile);
+    r.readAsDataURL(this.selectedFile);
   }
   
 }
