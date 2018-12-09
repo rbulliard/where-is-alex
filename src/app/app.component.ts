@@ -21,7 +21,7 @@ export class AppComponent {
     //this.imgAlex = getAsDataURL(this.selectedFile);
     
     var preview = document.querySelector('img');
-    this.selectedFile = event[0].files[0];
+    this.selectedFile = <File>event.target.files[0];
     var reader  = new FileReader();
     var httpClient = this.http;
 
