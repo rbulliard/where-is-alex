@@ -16,32 +16,13 @@ export class AppComponent {
   constructor(private http: HttpClient) {}
   
   onFileChanged(event) {
-    console.log(event.target.files[0]);
-    
-    this.selectedFile = <File>event.target.files[0];
-    const fd = new FormData();
-    fd.append('image', this.selectedFile, this.selectedFile.name);
-    var config = {
-        headers: {'Content-Type': "image/jpeg"},
-        transformRequest: []
-    };
-    //var urlModel = "https://automl.googleapis.com/v1beta1/projects/endless-upgrade-223916/locations/us-central1/models/ICN5541762132522833103:predict";
     var url = "https://us-central1-endless-upgrade-223916.cloudfunctions.net/where-is-alex";
-    //this.http.post(url, fd).subscribe(event => {
-    //    console.log(event); // handle event here
-    //  });
-    var httpClient = this.http;
-    var r = new FileReader();
-    var img = this.imgAlex;
-    r.onload = function(){ 
-      console.log(r.result);
-      img = r.result;
-      httpClient.post(url, r.result).subscribe(event => {
-        console.log(event); // handle event here
-        getElementById('result').append(event[0].payload[0].displayName);
-      });
-    };
-    r.readAsDataURL(this.selectedFile);
+
+    this.imgAlex = getAsDataURL(this.selectedFile);
+    this.http.post(url, r.result).subscribe(event => {
+      console.log(event); // handle event here
+      getElementById('result').append(event[0].payload[0].displayName);
+    });
   }
   
 }
