@@ -28,10 +28,11 @@ export class AppComponent {
     //this.http.post(url, fd).subscribe(event => {
     //    console.log(event); // handle event here
     //  });
+    var httpClient = this.http;
     var r = new FileReader();
     r.onload = function(){ 
       console.log(r.result);
-      this.http.post(url, r.result).subscribe(event => {
+      httpClient.post(url, r.result).subscribe(event => {
         console.log(event); // handle event here
       });
     };
