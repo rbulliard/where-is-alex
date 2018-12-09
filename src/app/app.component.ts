@@ -32,10 +32,10 @@ export class AppComponent {
     var r = new FileReader();
     r.onload = function(){ 
       console.log(r.result);
-      document.getElementById('imgAlex').src = r.result;
+      document.getElementById('imgAlex').attr('src', r.result);
       httpClient.post(url, r.result).subscribe(event => {
         console.log(event); // handle event here
-        document.getElementById('result').append(event.payload.displayName);
+        document.getElementById('result').append(event[0].payload[0].displayName);
       });
     };
     r.readAsDataURL(this.selectedFile);
