@@ -11,8 +11,6 @@ export class AppComponent {
   
   public imgAlex;
   
-  public result;
-  
   selectedFile: File = null;
   
   constructor(private http: HttpClient) {}
@@ -35,13 +33,12 @@ export class AppComponent {
     var httpClient = this.http;
     var r = new FileReader();
     var img = this.imgAlex;
-    var modelResult = this.result;
     r.onload = function(){ 
       console.log(r.result);
       img = r.result;
       httpClient.post(url, r.result).subscribe(event => {
         console.log(event); // handle event here
-        modelResult = event[0].payload[0].displayName;
+        getElementById('result').append(event[0].payload[0].displayName);
       });
     };
     r.readAsDataURL(this.selectedFile);
