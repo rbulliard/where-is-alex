@@ -18,7 +18,7 @@ export class AppComponent {
     
     var preview = document.querySelector("img");
     var result = document.querySelector("#result");//document.getElementById('result');
-    var loader = document.querySelector(".lds-facebook");
+    HTMLElement loader = document.querySelector(".lds-facebook");
     result.remove();
     loader.hidden = false;
     
@@ -33,7 +33,7 @@ export class AppComponent {
         console.log(event); // handle event here
         var response = document.createElement("div");
         response.id = "result";
-        response.text = event[0].payload[0].displayName;
+        response.innerText = event[0].payload[0].displayName;
         loader.hidden = true;
         loader.append(response);
       });
