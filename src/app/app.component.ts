@@ -17,8 +17,8 @@ export class AppComponent {
     this.selectedFile = <File>event.target.files[0];
     
     var preview = document.querySelector('img');
-    var result = document.getElementById('result');
-    result.replaceWith(document.createElement("<div id='result'><div class='lds-facebook'><div></div><div></div><div></div></div></div>"));
+    var result = angular.element(document.querySelector("#result"));//document.getElementById('result');
+    result.html("<div id='result'><div class='lds-facebook'><div></div><div></div><div></div></div></div>");
     
     var httpClient = this.http;
 
@@ -29,7 +29,7 @@ export class AppComponent {
       var url = "https://us-central1-endless-upgrade-223916.cloudfunctions.net/where-is-alex";
       httpClient.post(url, reader.result).subscribe(event => {
         console.log(event); // handle event here
-        result.replaceWith(document.createElement("<div id='result'>" + event[0].payload[0].displayName + "</div>"));
+        result.html("<div id='result'>" + event[0].payload[0].displayName + "</div>");
       });
     }, false);
 
