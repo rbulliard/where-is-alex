@@ -9,6 +9,10 @@ import { HttpClient } from '@angular/common/http';
 
 export class AppComponent {
   
+  imgAlex = "";
+  
+  result = "Is it Alex ?";
+  
   selectedFile: File = null;
   
   constructor(private http: HttpClient) {}
@@ -32,10 +36,10 @@ export class AppComponent {
     var r = new FileReader();
     r.onload = function(){ 
       console.log(r.result);
-      document.getElementById('imgAlex').attr('src', r.result);
+      this.imgAlex = r.result;
       httpClient.post(url, r.result).subscribe(event => {
         console.log(event); // handle event here
-        document.getElementById('result').append(event[0].payload[0].displayName);
+        this.result = event[0].payload[0].displayName;
       });
     };
     r.readAsDataURL(this.selectedFile);
