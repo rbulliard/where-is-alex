@@ -23,11 +23,11 @@ export class AppComponent {
     var preview = document.querySelector('img');
     this.selectedFile = event[0].files[0];
     var reader  = new FileReader();
+    var httpClient = this.http;
 
     reader.addEventListener("load", function () {
-      let img = reader.result;
-      preview.src = img;
-      this.http.post(url, img).subscribe(event => {
+      preview.src = reader.result.toString();
+      httpClient.post(url, reader.result).subscribe(event => {
         console.log(event); // handle event here
         document.getElementById('result').append(event[0].payload[0].displayName);
       });
