@@ -20,6 +20,7 @@ export class AppComponent {
     var result = document.querySelector("#result");//document.getElementById('result');
     var loader = document.querySelector(".lds-facebook");
     result.remove();
+    loader.show();
     
     var httpClient = this.http;
 
@@ -30,7 +31,11 @@ export class AppComponent {
       var url = "https://us-central1-endless-upgrade-223916.cloudfunctions.net/where-is-alex";
       httpClient.post(url, reader.result).subscribe(event => {
         console.log(event); // handle event here
-        loader.append("<div style='text-align:center' id='result'>" + event[0].payload[0].displayName + "</div>");
+        var response = document.createElement("div");
+        response.setId("result");
+        response.setText(event[0].payload[0].displayName);
+        loader.hide();
+        loader.append(response);
       });
     }, false);
 
