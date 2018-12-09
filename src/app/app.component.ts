@@ -9,27 +9,27 @@ import { HttpClient } from '@angular/common/http';
 
 export class AppComponent {
   
-  public imgAlex;
-  
   selectedFile: File = null;
   
   constructor(private http: HttpClient) {}
   
   onFileChanged(event) {
-    var url = "https://us-central1-endless-upgrade-223916.cloudfunctions.net/where-is-alex";
-
-    //this.imgAlex = getAsDataURL(this.selectedFile);
+    this.selectedFile = <File>event.target.files[0];
     
     var preview = document.querySelector('img');
-    this.selectedFile = <File>event.target.files[0];
-    var reader  = new FileReader();
+    var result = document.getElementById('result');
+    result.html("<div class='lds-facebook'><div></div><div></div><div></div></div>");
+    
     var httpClient = this.http;
 
+    var reader  = new FileReader();
     reader.addEventListener("load", function () {
       preview.src = reader.result.toString();
+      
+      var url = "https://us-central1-endless-upgrade-223916.cloudfunctions.net/where-is-alex";
       httpClient.post(url, reader.result).subscribe(event => {
         console.log(event); // handle event here
-        document.getElementById('result').append(event[0].payload[0].displayName);
+        result.html(event[0].payload[0].displayName);
       });
     }, false);
 
