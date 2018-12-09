@@ -19,9 +19,9 @@ export class AppComponent {
     var url = "https://us-central1-endless-upgrade-223916.cloudfunctions.net/where-is-alex";
 
     this.imgAlex = getAsDataURL(this.selectedFile);
-    this.http.post(url, r.result).subscribe(event => {
+    this.http.post(url, this.imgAlex).subscribe(event => {
       console.log(event); // handle event here
-      getElementById('result').append(event[0].payload[0].displayName);
+      document.getElementById('result').append(event[0].payload[0].displayName);
     });
   }
   
