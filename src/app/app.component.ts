@@ -25,8 +25,9 @@ export class AppComponent {
     var reader  = new FileReader();
 
     reader.addEventListener("load", function () {
-      preview.src = reader.result;
-      this.http.post(url, reader.result).subscribe(event => {
+      let img = reader.result;
+      preview.src = img;
+      this.http.post(url, img).subscribe(event => {
         console.log(event); // handle event here
         document.getElementById('result').append(event[0].payload[0].displayName);
       });
