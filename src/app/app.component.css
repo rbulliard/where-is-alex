@@ -1,13 +1,14 @@
 .img-preview {
-  display:block;
-  margin:auto;
-  max-height:150px;
+  display: block;
+  margin: auto;
+  max-height: 150px;
 }
 .result {
-  text-align:center;
+  text-align: center;
 }
 .lds-facebook {
-  display: inline-block;
+  display: block;
+  margin: auto
   position: relative;
   width: 64px;
   height: 64px;
