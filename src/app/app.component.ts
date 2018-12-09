@@ -21,7 +21,9 @@ export class AppComponent {
     var preview = document.querySelector("img");
     var result = document.querySelector("#result");//document.getElementById('result');
     var loader = document.querySelector(".lds-facebook");
-    result.remove();
+    if (result != null) {
+      result.remove();
+    }
     this.showLoader = true;
     var app = this;
     
