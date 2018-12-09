@@ -34,8 +34,8 @@ export class AppComponent {
     //  });
     var httpClient = this.http;
     var r = new FileReader();
-    var img;
-    var modelResult;
+    var img = this.imgAlex;
+    var modelResult = this.result;
     r.onload = function(){ 
       console.log(r.result);
       img = r.result;
@@ -45,8 +45,6 @@ export class AppComponent {
       });
     };
     r.readAsDataURL(this.selectedFile);
-    this.imgAlex = img;
-    this.result = modelResult;
   }
   
 }
