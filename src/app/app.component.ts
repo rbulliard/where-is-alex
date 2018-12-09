@@ -17,7 +17,7 @@ export class AppComponent {
     this.selectedFile = <File>event.target.files[0];
     
     var preview = document.querySelector('img');
-    var result = angular.element(document.querySelector("#result"));//document.getElementById('result');
+    var result = document.querySelector("#result");//document.getElementById('result');
     result.html("<div id='result'><div class='lds-facebook'><div></div><div></div><div></div></div></div>");
     
     var httpClient = this.http;
