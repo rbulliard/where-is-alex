@@ -18,7 +18,8 @@ export class AppComponent {
     
     var preview = document.querySelector('img');
     var result = document.getElementById('result');
-    result.replaceWith("<div id='result'><div class='lds-facebook'><div></div><div></div><div></div></div></div>");
+    var loader = "<div id='result'><div class='lds-facebook'><div></div><div></div><div></div></div></div>";
+    result.replaceWith(loader);
     
     var httpClient = this.http;
 
