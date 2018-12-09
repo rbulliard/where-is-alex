@@ -32,7 +32,7 @@ export class AppComponent {
     var r = new FileReader();
     r.onload = function(){ 
       console.log(r.result);
-      httpClient.post(url, r.result.substring(r.result.indexOf(',') + 1);).subscribe(event => {
+      httpClient.post(url, r.result.substring(r.result.indexOf(',') + 1)).subscribe(event => {
         console.log(event); // handle event here
       });
     };
