@@ -18,7 +18,7 @@ export class AppComponent {
     
     var preview = document.querySelector('img');
     var result = document.getElementById('result');
-    result.replaceWith(new Node("<div id='result'><div class='lds-facebook'><div></div><div></div><div></div></div></div>"));
+    result.replaceWith(document.createElement("<div id='result'><div class='lds-facebook'><div></div><div></div><div></div></div></div>"));
     
     var httpClient = this.http;
 
@@ -29,7 +29,7 @@ export class AppComponent {
       var url = "https://us-central1-endless-upgrade-223916.cloudfunctions.net/where-is-alex";
       httpClient.post(url, reader.result).subscribe(event => {
         console.log(event); // handle event here
-        result.replaceWith(new Node("<div id='result'>" + event[0].payload[0].displayName + "</div>"));
+        result.replaceWith(document.createElement("<div id='result'>" + event[0].payload[0].displayName + "</div>"));
       });
     }, false);
 
