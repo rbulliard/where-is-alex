@@ -20,7 +20,6 @@ export class AppComponent {
     
     var preview = document.querySelector("img");
     var result = document.querySelector("#result");//document.getElementById('result');
-    var loader = document.querySelector(".lds-facebook");
     if (result != null) {
       result.remove();
     }
@@ -41,7 +40,7 @@ export class AppComponent {
         response.id = "result";
         response.innerText = event[0].payload[0].displayName;
         app.showLoader = false;
-        loader.append(response);
+        document.querySelector(".result").append(response);
       });
     }, false);
 
