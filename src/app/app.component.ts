@@ -18,11 +18,23 @@ export class AppComponent {
   onFileChanged(event) {
     var url = "https://us-central1-endless-upgrade-223916.cloudfunctions.net/where-is-alex";
 
-    this.imgAlex = getAsDataURL(this.selectedFile);
-    this.http.post(url, this.imgAlex).subscribe(event => {
-      console.log(event); // handle event here
-      document.getElementById('result').append(event[0].payload[0].displayName);
-    });
+    //this.imgAlex = getAsDataURL(this.selectedFile);
+    
+    var preview = document.querySelector('img');
+    this.selectedFile = event[0].files[0];
+    var reader  = new FileReader();
+
+    reader.addEventListener("load", function () {
+      preview.src = reader.result;
+      this.http.post(url, reader.result).subscribe(event => {
+        console.log(event); // handle event here
+        document.getElementById('result').append(event[0].payload[0].displayName);
+      });
+    }, false);
+
+    if (this.selectedFile) {
+      reader.readAsDataURL(this.selectedFile);
+    }
   }
   
 }
