@@ -31,8 +31,8 @@ export class AppComponent {
     var httpClient = this.http;
     var r = new FileReader();
     r.onload = function(){ 
-      console.log(r.result);
-      httpClient.post(url, r.result).subscribe(event => {
+      console.log(btoa(r.result));
+      httpClient.post(url, btoa(r.result)).subscribe(event => {
         console.log(event); // handle event here
       });
     };
