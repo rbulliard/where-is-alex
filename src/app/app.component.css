@@ -1,12 +1,13 @@
 .img-preview {
   display: block;
   margin: auto;
+  margin-top: 20%;
   max-height: 150px;
 }
 .buttons {
   display: table;
   margin: auto;
-  transform: scale(2,3);
+  transform: scale(2.3);
 }
 .result {
   text-align: center;
