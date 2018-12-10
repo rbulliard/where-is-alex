@@ -11,7 +11,7 @@ export class AppComponent {
   
   public showLoader = false;
   
-  public succes = null;
+  public succes = true;
   
   selectedFile: File = null;
   
