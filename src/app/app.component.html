@@ -1,5 +1,11 @@
 <img class="img-preview" src="assets/title.jpeg"/>
-<input type="file" accept="image/*" id="file-input" (change)="onFileChanged($event)"/>
+
+<button mat-icon-button (click)="gallery.click()"><mat-icon>add_photo_alternate</mat-icon></button>
+<button mat-icon-button (click)="camera.click()"><mat-icon>add_a_photo</mat-icon></button>
+
+<input #gallery type="file" accept="image/*" id="file-input" (change)="onFileChanged($event)"/>
+<input #camera type="file" accept="image/*" id="file-input" (change)="onFileChanged($event)" capture/>
+
 <div [hidden]="!showLoader" class="lds-facebook"><div></div><div></div><div></div></div>
 <div [hidden]="showLoader" class="result"></div>
 
