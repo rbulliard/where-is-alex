@@ -11,6 +11,12 @@
 .result {
   text-align: center;
 }
+mat-icon.succes {
+  color: green;
+}
+mat-icon.fail {
+  color: red;
+}
 .lds-facebook {
   margin: auto;
   position: relative;
