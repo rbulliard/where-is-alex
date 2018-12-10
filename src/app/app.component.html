@@ -1,8 +1,8 @@
 <img class="img-preview" src="assets/title.jpeg"/>
 
 <div class="buttons">
-  <button mat-icon-button (click)="gallery.click()"><mat-icon class="md-48">add_photo_alternate</mat-icon></button>
-  <button mat-icon-button (click)="camera.click()"><mat-icon class="md-48">add_a_photo</mat-icon></button>
+  <button mat-icon-button (click)="gallery.click()"><mat-icon>add_photo_alternate</mat-icon></button>
+  <button mat-icon-button (click)="camera.click()"><mat-icon>add_a_photo</mat-icon></button>
   <input #gallery type="file" accept="image/*" id="file-input" (change)="onFileChanged($event)"hidden/>
   <input #camera type="file" accept="image/*" id="file-input" (change)="onFileChanged($event)" capture hidden/>
 </div>
