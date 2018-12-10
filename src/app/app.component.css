@@ -6,9 +6,7 @@
 .buttons {
   display: table;
   margin: auto;
-}
-mat-icon {
-  @include md-icon-size(48px);
+  transform: scale(2,3);
 }
 .result {
   text-align: center;
