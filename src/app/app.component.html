@@ -8,7 +8,7 @@
 </div>
 
 <div [hidden]="!showLoader" class="lds-facebook"><div></div><div></div><div></div></div>
-<div #result [hidden]="showLoader">
+<div id="result" [hidden]="showLoader">
   <div [hidden]="!succes"><mat-icon class="succes">check_circle_outline</mat-icon>Yes, it's Alex !</div>
   <div [hidden]="succes"><mat-icon class="fail">block</mat-icon>No, it's not Alex !</div>
 </div>
